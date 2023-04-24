@@ -28,12 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Errors\" />
-    <Folder Include="Common\Http\" />
-    <Folder Include="Common\Mapping\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SampleWithReact.Application\SampleWithReact.Application.csproj" />
     <ProjectReference Include="..\SampleWithReact.Infrastructure\SampleWithReact.Infrastructure.csproj" />
   </ItemGroup>

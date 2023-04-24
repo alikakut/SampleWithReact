@@ -1,6 +1,6 @@
 ﻿namespace SampleWithReact.Api.Common.Errors
 {
-    public class EurowebapiProblemDetailsFactory
+    public class SampleWithReactApiProblemDetailsFactory
     {
     }
 }
