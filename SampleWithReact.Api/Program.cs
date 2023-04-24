@@ -1,10 +1,12 @@
 using SampleWithReact.Api;
+using SampleWithReact.Application;
+using SampleWithReact.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services
         .AddPresentation()
-        .AddApplication()
+        .AddAplication()
         .AddInfrastructure(builder.Configuration);
 }
 // Add services to the container.
