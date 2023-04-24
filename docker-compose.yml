@@ -1,0 +1,63 @@
+version: '3.9'
+networks:
+  dev:
+    driver: bridge
+services:
+  samplewithreact-app:
+    image: docker.io/library/eurowebapi_app
+    depends_on:
+      - "samplewithreact_db"
+      - "samplewithreact_els"
+    container_name: samplewithreact_app-services
+    ports:
+      - "8089:80"
+    build:
+      context: .
+      dockerfile: SampleWithReact.Api/Dockerfile
+    environment:
+      - ConnectionStrings__PostgreSQLConnection=User ID=postgres;Password=postgres;Server=samplewithreact_db;Port=5433;Database=samplewithreact;IntegratedSecurity=true;Pooling=true;
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - dev
+  samplewithreact_db:
+    image: postgres:latest
+    container_name: samplewithreact_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=samplewithreact
+    ports:
+      - "5434:5433"
+    restart: always
+    volumes:
+      - app_data:/var/lib/postgresql/data
+    networks:
+      - dev
+  samplewithreact_els:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    container_name: samplewithreact_els
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ports:
+      - "9201:9200"
+    restart: always
+    volumes:
+      - app_els:/usr/share/elasticsearch/data
+    networks:
+      - dev
+  samplewithreact_kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.9
+    depends_on:
+      - "samplewithreact_els"
+    container_name: samplewithreact_kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=["http://samplewithreact_els:9200"]
+    ports:
+      - "5602:5601"
+    restart: always
+    networks:
+      - dev
+volumes:
+  app_data:
+  app_els:
