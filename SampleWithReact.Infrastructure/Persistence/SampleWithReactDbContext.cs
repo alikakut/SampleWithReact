@@ -15,7 +15,6 @@ namespace SampleWithReact.Infrastructure.Persistence
         public SampleWithReactDbContext(DbContextOptions<SampleWithReactDbContext> options) : base(options)
         {
         }
-
         public DbSet<CourseEntity> CourseEntities { get; set; }
         public DbSet<StudentEntity> StudentEntities { get; set; }
         public DbSet<CourseStudentEntity> CourseStudents { get; set; }

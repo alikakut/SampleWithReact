@@ -13,5 +13,17 @@ namespace SampleWithReact.Domain.Entities
     {
         [Column("name")]
         public string Name { get; set; }
+
+        [Column("status")]
+        public int Status { get; set; }
+
+        [Column("lecturer_id")]
+        public long LecturerId { get; set; }
+
+        [Column("is_active")]
+        public byte IsActive { get; set; }
+
+        [ForeignKey("LecturerId")]
+        public LecturerEntity Lecturer { get; set; }
     }
 }
