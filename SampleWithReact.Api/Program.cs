@@ -1,5 +1,12 @@
-var builder = WebApplication.CreateBuilder(args);
+using SampleWithReact.Api;
 
+var builder = WebApplication.CreateBuilder(args);
+{
+    builder.Services
+        .AddPresentation()
+        .AddApplication()
+        .AddInfrastructure(builder.Configuration);
+}
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
@@ -25,3 +32,4 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html");
 
 app.Run();
+

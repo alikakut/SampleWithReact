@@ -14,7 +14,6 @@ namespace SampleWithReact.Api.Controllers
     [AllowAnonymous]
     public class CourseController : BaseController
     {
-
         private readonly ISender _mediator;
         private readonly IMapper _mapper;
 
