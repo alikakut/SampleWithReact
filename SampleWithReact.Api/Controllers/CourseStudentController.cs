@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ErrorOr;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SampleWithReact.Api.Contracts.CourseStudents;
 using SampleWithReact.Api.Contracts.Student;
@@ -11,6 +12,8 @@ using SampleWithReact.Application.Students.Commands.CreateStudents;
 
 namespace SampleWithReact.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [AllowAnonymous]
     public class CourseStudentController : BaseController
     {
         private readonly ISender _mediator;
