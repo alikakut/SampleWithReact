@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using ErrorOr;
+using SampleWithReact.Api.Common.Http;
 
 namespace SampleWithReact.Api.Common.Errors
 {
-    public class SampleWithReactApiProblemDetailsFactory: ProblemDetailsFactory
+    public class SampleWithReactApiProblemDetailsFactory : ProblemDetailsFactory
     {
         private readonly ApiBehaviorOptions _options;
         private readonly Action<ProblemDetailsContext>? _configure;
@@ -105,6 +107,7 @@ namespace SampleWithReact.Api.Common.Errors
             //_configure?.Invoke(new() { HttpContext = httpContext!, ProblemDetails = problemDetails });
         }
 
-
-
     }
+}
+
+    
