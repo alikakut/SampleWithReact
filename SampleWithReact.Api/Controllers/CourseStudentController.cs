@@ -23,7 +23,7 @@ namespace SampleWithReact.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] StudentPagedRequest request)
+        public async Task<IActionResult> Get([FromQuery] CourseStudentsPagedRequest request)
         {
             var query = _mapper.Map<CourseStudentQuery>(request);
 
