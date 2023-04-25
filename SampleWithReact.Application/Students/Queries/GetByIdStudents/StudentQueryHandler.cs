@@ -9,11 +9,11 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
     public class StudentQueryHandler : IRequestHandler<StudentQuery, ErrorOr<StudentQueryResult>>
     {
         IStudentRepository _studentRepository;
-        IMapper _mapper;
-        public StudentQueryHandler(IStudentRepository studentRepository, IMapper mapper)
+     
+        public StudentQueryHandler(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
-            _mapper = mapper;
+            
         }
         public async Task<ErrorOr<StudentQueryResult>> Handle(StudentQuery query, CancellationToken cancellationToken)
         {

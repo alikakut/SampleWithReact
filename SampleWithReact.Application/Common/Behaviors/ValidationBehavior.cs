@@ -47,3 +47,4 @@ namespace SampleWithReact.Application.Common.Behaviors
             return (dynamic)errors;
         }
     }
+}

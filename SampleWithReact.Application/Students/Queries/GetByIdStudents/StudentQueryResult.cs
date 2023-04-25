@@ -9,7 +9,7 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 {
     public class StudentQueryResult 
     {
-        int Name { get; set; }
+        int FirstName { get; set; }
         int Id { get; set; }
     }
 }
