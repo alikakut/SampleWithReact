@@ -18,6 +18,6 @@ namespace SampleWithReact.Domain.Entities
         public string LastName { get; set; }
 
         [Column("is_active")]
-        public byte IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }
