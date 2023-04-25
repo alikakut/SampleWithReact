@@ -34,7 +34,7 @@ namespace SampleWithReact.Api.Controllers
             ErrorOr<CourseStudentQueryResult> queryResult = await _mediator.Send(query);
 
             return queryResult.Match(
-                result => Ok(_mapper.Map<StudentPagedResponse>(result)),
+                result => Ok(_mapper.Map<CourseStudentsPagedResponse>(result)),
                 Problem);
         }
 
