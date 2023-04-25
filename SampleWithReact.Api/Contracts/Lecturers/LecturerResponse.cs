@@ -2,9 +2,8 @@
 {
     public record LecturerResponse
          (
-        int id,
+        long Id,
         string FirstName,
-        string MiddleName,
         string LastName,
         bool IsActive,
         bool IsDeleted);

@@ -11,7 +11,7 @@ namespace SampleWithReact.Application.Lecturers.Commands.CreateLecturers
     {
         public CreateLecturerCommandValidator()
         {
-            //RuleFor(x => x.CourseName).NotEmpty();
+            RuleFor(x => x.FirstName).NotEmpty();
         }
     }
 }

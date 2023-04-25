@@ -31,7 +31,7 @@ namespace SampleWithReact.Application.Students.Commands.CreateStudents
            
             };
             var persistenceResult = _studentRepository.Add(studentEntity);
-            if (persistenceResult is null || persistenceResult.Id < 1)
+            if (persistenceResult is null || persistenceResult.Id > 1)
             {
                 return Errors.DbPersistence;
             }
