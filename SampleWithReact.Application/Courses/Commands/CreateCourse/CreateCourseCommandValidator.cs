@@ -11,7 +11,7 @@ namespace SampleWithReact.Application.Courses.Commands.CreateCourse
     {
         public CreateCourseCommandValidator()
         {
-            RuleFor(x => x.CourseName).NotEmpty();
+            RuleFor(x => x.Name).NotEmpty();
         }
     }
 }

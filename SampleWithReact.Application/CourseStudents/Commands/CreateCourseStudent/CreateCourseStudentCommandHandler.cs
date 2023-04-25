@@ -25,10 +25,12 @@ namespace SampleWithReact.Application.CourseStudents.Commands.CreateCourseStuden
 
             var courseStudentEntity = new CourseStudentEntity
             {
-              
+              CourseId = request.CourseId,
+              StudentId= request.StudentId,
+              Grade= request.Grade
             };
             var persistenceResult = _courseStudentRepository.Add(courseStudentEntity);
-            if (persistenceResult is null || persistenceResult.Id < 1)
+            if (persistenceResult is null || persistenceResult.Id > 1)
             {
                 return Errors.DbPersistence;
             }

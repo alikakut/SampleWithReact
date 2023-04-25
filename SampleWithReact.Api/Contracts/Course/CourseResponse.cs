@@ -2,10 +2,10 @@
 {
     public record CourseResponse
     (
-        int id,
-        string FirstName,
-        string MiddleName,
-        string LastName,
+        long Id,
+        string Name,
+        int Status,
+        long LecturerId,
         bool IsActive,
         bool IsDeleted
     );

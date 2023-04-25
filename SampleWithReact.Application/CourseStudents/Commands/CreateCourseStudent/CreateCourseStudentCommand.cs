@@ -10,5 +10,5 @@ using SampleWithReact.Domain.Entities;
 namespace SampleWithReact.Application.CourseStudents.Commands.CreateCourseStudent
 {
     public record CreateCourseStudentCommand(
-    string CourseStudentName) : IRequest<ErrorOr<CourseStudentEntity>>;
+   long CourseId, long StudentId, int Grade) : IRequest<ErrorOr<CourseStudentEntity>>;
 }

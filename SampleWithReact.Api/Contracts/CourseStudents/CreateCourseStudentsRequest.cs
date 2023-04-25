@@ -1,4 +1,4 @@
 ﻿namespace SampleWithReact.Api.Contracts.CourseStudents
 {
-    public record CreateCourseStudentsRequest(string Name);
+    public record CreateCourseStudentsRequest(long CourseId, long StudentId, int Grade);
 }

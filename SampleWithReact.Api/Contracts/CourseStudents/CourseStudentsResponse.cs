@@ -1,10 +1,10 @@
 ﻿namespace SampleWithReact.Api.Contracts.CourseStudents
 {
     public record CourseStudentsResponse(
-         int id,
-        string FirstName,
-        string MiddleName,
-        string LastName,
+        long Id,
+         long CourseId,
+         long StudentId,
+         int Grade,
         bool IsActive,
         bool IsDeleted);
 }
