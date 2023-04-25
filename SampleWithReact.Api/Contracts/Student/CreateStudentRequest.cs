@@ -1,5 +1,5 @@
 ﻿namespace SampleWithReact.Api.Contracts.Student
 {
     public record CreateStudentRequest(
-        string Name);
+        string FirstName);
 }

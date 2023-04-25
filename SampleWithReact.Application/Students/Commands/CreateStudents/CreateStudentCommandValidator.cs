@@ -11,7 +11,7 @@ namespace SampleWithReact.Application.Students.Commands.CreateStudents
     {
         public CreateStudentCommandValidator()
         {
-            RuleFor(x => x.Name).NotEmpty();
+            RuleFor(x => x.FirstName).NotEmpty();
         }
     }
 }

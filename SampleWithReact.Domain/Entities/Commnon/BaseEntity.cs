@@ -12,7 +12,7 @@ namespace SampleWithReact.Domain.Entities.Commnon
     {
         [Column("id")]
         [Key]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [Column("is_deleted")]
         public bool IsDeleted { get; set; } = false;

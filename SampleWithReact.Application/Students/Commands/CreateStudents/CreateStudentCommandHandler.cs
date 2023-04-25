@@ -25,7 +25,7 @@ namespace SampleWithReact.Application.Students.Commands.CreateStudents
 
             var studentEntity = new StudentEntity
             {
-                FirstName = request.Name,
+                FirstName = request.FirstName,
             };
             var persistenceResult = _studentRepository.Add(studentEntity);
             if (persistenceResult is null || persistenceResult.Id < 1)
