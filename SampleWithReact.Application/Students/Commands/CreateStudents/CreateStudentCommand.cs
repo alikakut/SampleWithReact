@@ -10,6 +10,6 @@ using SampleWithReact.Domain.Entities;
 namespace SampleWithReact.Application.Students.Commands.CreateStudents
 {
     public record CreateStudentCommand(
-    string FirstName) : IRequest<ErrorOr<StudentEntity>>;
+    string FirstName, string MiddleName, string LastName) : IRequest<ErrorOr<StudentEntity>>;
 
 }

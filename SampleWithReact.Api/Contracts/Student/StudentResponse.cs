@@ -2,7 +2,7 @@
 {
     public record StudentResponse
         (
-        long id,
+        long Id,
         string FirstName,
         string MiddleName,
         string LastName,
