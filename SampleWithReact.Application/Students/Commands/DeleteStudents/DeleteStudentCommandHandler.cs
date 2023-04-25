@@ -24,7 +24,7 @@ namespace SampleWithReact.Application.Students.Commands.DeleteStudents
             await Task.CompletedTask;
             var student = _studentRepository.GetById(request.Id);
            
-            if (student == null)
+            if (student == null || student.Id < 1)
             {
                 return Errors.NotFound;
             }
