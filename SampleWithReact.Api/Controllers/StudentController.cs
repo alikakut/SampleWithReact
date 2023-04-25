@@ -8,6 +8,7 @@ using SampleWithReact.Api.Controllers.Common;
 using SampleWithReact.Application.Students.Commands.CreateStudents;
 using SampleWithReact.Application.Students.Queries.GetByIdStudents;
 using MapsterMapper;
+using SampleWithReact.Application.Students.Commands.DeleteStudents;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -48,6 +49,43 @@ namespace SampleWithReact.Api.Controllers
                 result => Ok(_mapper.Map<StudentResponse>(result)),
                 Problem);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromQuery] CreateStudentRequest request)
+        {
+            var command = _mapper.Map<UpdateStudentCommand>(request);
+
+            var updateResult = await _mediator.Send(command);
+
+            return updateResult.Match(
+                result => Ok(_mapper.Map<StudentResponse>(result)),
+                Problem);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete (long Id)
+        {
+            var command = _mapper.Map<DeleteStudentCommand>(Id);
+
+            var deleteResult = await _mediator.Send(command);
+
+            return deleteResult.Match(
+                result => Ok(_mapper.Map<StudentResponse>(result)),
+                Problem);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long Id)
+        {
+            var query = _mapper.Map<StudentQuery>(Id);
+
+            ErrorOr<StudentQueryResult> queryResult = await _mediator.Send(query);
+
+            return queryResult.Match(
+                result => Ok(_mapper.Map<StudentPagedResponse>(result)),
+                Problem);
+        }
+
     }
 }
 
