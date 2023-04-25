@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿
 using ErrorOr;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +10,7 @@ using SampleWithReact.Application.Courses.Commands.CreateCourse;
 using SampleWithReact.Application.Courses.Queries.GetCourses;
 using SampleWithReact.Application.Lecturers.Commands.CreateLecturers;
 using SampleWithReact.Application.Lecturers.Queries.GetLecturer;
-
+using MapsterMapper;
 namespace SampleWithReact.Api.Controllers
 {
     [Route("api/[controller]")]

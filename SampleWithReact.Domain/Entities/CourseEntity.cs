@@ -21,7 +21,7 @@ namespace SampleWithReact.Domain.Entities
         public long LecturerId { get; set; }
 
         [Column("is_active")]
-        public byte IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         [ForeignKey("LecturerId")]
         public LecturerEntity Lecturer { get; set; }

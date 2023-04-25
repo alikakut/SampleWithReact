@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using ErrorOr;
+﻿using ErrorOr;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
@@ -8,6 +7,7 @@ using SampleWithReact.Api.Contracts.Student;
 using SampleWithReact.Api.Controllers.Common;
 using SampleWithReact.Application.Students.Commands.CreateStudents;
 using SampleWithReact.Application.Students.Queries.GetByIdStudents;
+using MapsterMapper;
 
 namespace SampleWithReact.Api.Controllers
 {

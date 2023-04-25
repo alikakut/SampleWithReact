@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿
 using ErrorOr;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +9,7 @@ using SampleWithReact.Api.Controllers.Common;
 using SampleWithReact.Application.CourseStudents.Commands.CreateCourseStudent;
 using SampleWithReact.Application.CourseStudents.Queries.GetCourseStudent;
 using SampleWithReact.Application.Students.Commands.CreateStudents;
+using MapsterMapper;
 
 namespace SampleWithReact.Api.Controllers
 {
