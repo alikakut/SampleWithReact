@@ -1,4 +1,8 @@
 ﻿namespace SampleWithReact.Api.Contracts.Lecturers
 {
-    public record LecturerPagedResponse();
+    public record LecturerPagedResponse(int CurrentPage,
+      int PageSize,
+      int TotalPageCount,
+      int TotalRowCount,
+      List<LecturerPagedResponse> Data);
 }
