@@ -18,7 +18,7 @@ namespace SampleWithReact.Domain.Entities
         public long StudentId { get; set; }
 
         [Column("grade")]
-        public int Grade { get; set; }
+        public string Grade { get; set; }
 
         [ForeignKey("CourseId")]
         public CourseEntity Course { get; set; }

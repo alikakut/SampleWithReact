@@ -26,7 +26,7 @@ namespace SampleWithReact.Application.Lecturers.Commands.CreateLecturers
 
             var lecturerEntity = new LecturerEntity
             {
-                Name = request.Name,
+                FirstName = request.Name,
             };
             var persistenceResult = _lecturerRepository.Add(lecturerEntity);
             if (persistenceResult is null || persistenceResult.Id < 1)
