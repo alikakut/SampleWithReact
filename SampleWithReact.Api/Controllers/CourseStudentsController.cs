@@ -15,12 +15,12 @@ namespace SampleWithReact.Api.Controllers
 {
     [Route("api/[controller]")]
     [AllowAnonymous]
-    public class CourseStudentController : BaseController
+    public class CourseStudentsController : BaseController
     {
         private readonly ISender _mediator;
         private readonly IMapper _mapper;
 
-        public CourseStudentController(ISender mediator, IMapper mapper)
+        public CourseStudentsController(ISender mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
