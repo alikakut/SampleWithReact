@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SampleWithReact.Application.Common.Interfaces.Persistence;
 using SampleWithReact.Infrastructure.Persistence;

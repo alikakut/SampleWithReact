@@ -54,8 +54,8 @@ namespace SampleWithReact.Infrastructure.Persistence.Repositories.Common
 
         public TEntity Add(TEntity entity)
         {
-            _dbSet.Add(entity);
-            return entity;
+            var result = _dbSet.Add(entity);
+            return result.Entity;
         }
 
         public int Count()
