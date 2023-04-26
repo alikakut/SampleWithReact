@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 {
-    public class StudentQueryGetByIdResult
+    public class StudentQueryResult 
     {
-        int Id;
+        int FirstName { get; set; }
+        int Id { get; set; }
     }
 }

@@ -27,11 +27,11 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 
             var student = _studentRepository.GetById(query.Id);
 
-            if (student == null)
+            if (_studentRepository.Get(query.Page, query.Size) is not { } studentList)
             {
                 return Errors.NotFound;
             }
-            return new StudentQueryGetByIdResult();
+            return new StudentQueryResult();
                
         }
     }
