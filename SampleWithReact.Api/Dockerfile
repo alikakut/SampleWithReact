@@ -3,10 +3,10 @@ WORKDIR /src
 #
 # copy csproj and restore as distinct layers
 COPY *.sln .
-COPY Eurowebapi.Api/*.csproj ./Eurowebapi.Api/
-COPY Eurowebapi.Application/*.csproj ./Eurowebapi.Application/
-COPY Eurowebapi.Infrastructure/*.csproj ./Eurowebapi.Infrastructure/
-COPY Eurowebapi.Domain/*.csproj ./Eurowebapi.Domain/
+COPY SampleWithReact.Api/*.csproj ./SampleWithReact.Api/
+COPY SampleWithReact.Application/*.csproj ./SampleWithReact.Application/
+COPY SampleWithReact.Infrastructure/*.csproj ./SampleWithReact.Infrastructure/
+COPY SampleWithReact.Domain/*.csproj ./SampleWithReact.Domain/
 RUN dotnet restore "SampleWithReact.Api/SampleWithReact.Api.csproj"
 #
 # copy everything else and build dotnet app

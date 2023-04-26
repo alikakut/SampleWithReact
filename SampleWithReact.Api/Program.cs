@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using SampleWithReact.Api;
 using SampleWithReact.Application;
 using SampleWithReact.Infrastructure;
+using SampleWithReact.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -12,6 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<SampleWithReactDbContext>(options =>
+options.UseNpgsql
+(builder.Configuration.GetConnectionString("PostgreSQLConnection")));
 
 var app = builder.Build();
 

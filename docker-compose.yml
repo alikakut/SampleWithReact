@@ -15,7 +15,7 @@ services:
       context: .
       dockerfile: SampleWithReact.Api/Dockerfile
     environment:
-      - ConnectionStrings__PostgreSQLConnection=User ID=postgres;Password=postgres;Server=samplewithreact_db;Port=5433;Database=samplewithreact;IntegratedSecurity=true;Pooling=true;
+      - ConnectionStrings__PostgreSQLConnection=User ID=postgres;Password=postgres;Server=eurowebapi_db;Port=5433;Database=eurowebapi;IntegratedSecurity=true;Pooling=true;
       - ASPNETCORE_URLS=http://+:80
     networks:
       - dev
@@ -25,7 +25,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=samplewithreact
+      - POSTGRES_DB=eurowebapi
     ports:
       - "5434:5433"
     restart: always
