@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 {
-    public class StudentQueryResult 
-    {
-        int FirstName { get; set; }
-        int Id { get; set; }
-    }
+    public record StudentQueryResult
+  (int CurrentPage,
+    int PageSize,
+    int TotalPageCount,
+    int TotalRowCount,
+    List<StudentEntity> Data);
 }

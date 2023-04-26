@@ -26,12 +26,19 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 
             var student = _studentRepository.GetById(query.Id);
 
-            if (student == null)
+            if (_studentRepository.Get(query.Page, query.Size) is not { } studentList)
             {
                 return Errors.NotFound;
             }
-            return new StudentQueryResult();
-               
+            int totalRowCount = _studentRepository.Count();
+            int totalPageCount = (int)Math.Ceiling(totalRowCount / (float)query.Size);
+            return new StudentQueryResult(
+                query.Page,
+            query.Size,
+            totalPageCount,
+            totalRowCount,
+            studentList);
+
         }
     }
 }
