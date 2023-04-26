@@ -10,6 +10,10 @@ using SampleWithReact.Application.CourseStudents.Commands.CreateCourseStudent;
 using SampleWithReact.Application.CourseStudents.Queries.GetCourseStudent;
 using SampleWithReact.Application.Students.Commands.CreateStudents;
 using MapsterMapper;
+using SampleWithReact.Api.Contracts.Lecturers;
+using SampleWithReact.Application.Lecturers.Commands.DeleteLecturers;
+using SampleWithReact.Application.CourseStudents.Commands.DeleteCourseStudents;
+
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -50,5 +54,19 @@ namespace SampleWithReact.Api.Controllers
                 result => Ok(_mapper.Map<CourseStudentsResponse>(result)),
                 Problem);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(long Id)
+        {
+            var command = _mapper.Map<DeleteCourseStudentCommand>(Id);
+
+            var deleteResult = await _mediator.Send(command);
+
+            return deleteResult.Match(
+                result => Ok(_mapper.Map<CourseStudentsResponse>(result)),
+                Problem);
+        }
+
+       
     }
 }

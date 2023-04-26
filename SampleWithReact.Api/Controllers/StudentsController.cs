@@ -9,6 +9,7 @@ using SampleWithReact.Application.Students.Commands.CreateStudents;
 using SampleWithReact.Application.Students.Queries.GetByIdStudents;
 using MapsterMapper;
 using SampleWithReact.Application.Students.Commands.DeleteStudents;
+using SampleWithReact.Application.Students.Queries.GetStudents;
 
 namespace SampleWithReact.Api.Controllers
 {

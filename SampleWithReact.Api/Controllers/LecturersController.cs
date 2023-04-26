@@ -11,6 +11,10 @@ using SampleWithReact.Application.Courses.Queries.GetCourses;
 using SampleWithReact.Application.Lecturers.Commands.CreateLecturers;
 using SampleWithReact.Application.Lecturers.Queries.GetLecturer;
 using MapsterMapper;
+using SampleWithReact.Api.Contracts.Student;
+using SampleWithReact.Application.Students.Commands.DeleteStudents;
+using SampleWithReact.Application.Lecturers.Commands.DeleteLecturers;
+
 namespace SampleWithReact.Api.Controllers
 {
     [Route("api/[controller]")]
@@ -48,6 +52,30 @@ namespace SampleWithReact.Api.Controllers
 
             return createResult.Match(
                 result => Ok(_mapper.Map<LecturerResponse>(result)),
+                Problem);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(long Id)
+        {
+            var command = _mapper.Map<DeleteLecturerCommand>(Id);
+
+            var deleteResult = await _mediator.Send(command);
+
+            return deleteResult.Match(
+                result => Ok(_mapper.Map<LecturerResponse>(result)),
+                Problem);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long Id)
+        {
+            var query = _mapper.Map<LecturerQuery>(Id);
+
+            ErrorOr<LecturerQueryResult> queryResult = await _mediator.Send(query);
+
+            return queryResult.Match(
+                result => Ok(_mapper.Map<LecturerPagedResponse>(result)),
                 Problem);
         }
     }

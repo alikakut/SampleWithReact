@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStudent
 {
-    public class CourseStudentQueryHandler : IRequestHandler<CourseStudentQuery, ErrorOr<CourseStudentQueryResult>>
+    public class CourseStudentQueryGetByIdHandler : IRequestHandler<CourseStudentGetByIdQuery, ErrorOr<CourseStudentQueryGetByIdResult>>
     {
         private readonly ICourseStudentRepository _courseStudentRepository;
 
-        public CourseStudentQueryHandler(ICourseStudentRepository courseStudentRepository)
+        public CourseStudentQueryGetByIdHandler(ICourseStudentRepository courseStudentRepository)
         {
             _courseStudentRepository = courseStudentRepository;
         }
 
-        public async Task<ErrorOr<CourseStudentQueryResult>> Handle(CourseStudentQuery request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<CourseStudentQueryGetByIdResult>> Handle(CourseStudentGetByIdQuery request, CancellationToken cancellationToken)
         {
             await Task.CompletedTask;
 
@@ -34,7 +34,7 @@ namespace SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStuden
             {
                 return Errors.NotFound;
             }
-            return new CourseStudentQueryResult();
+            return new CourseStudentQueryGetByIdResult();
         }
     }
 }

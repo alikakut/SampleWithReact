@@ -9,6 +9,6 @@ using System.Threading.Tasks;
 
 namespace SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer
 {
-    public record LecturerQuery : BaseQuery, IRequest<ErrorOr<LecturerQueryResult>>;
+    public record LecturerGetByIdQuery : BaseQuery, IRequest<ErrorOr<LecturerQueryGetByIdResult>>; 
 
 }

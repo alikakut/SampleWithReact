@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStudent
+namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 {
-    public record CourseStudentQuery : BaseQuery, IRequest<ErrorOr<CourseStudentQueryResult>>;
-    
-}
+    public record StudentGetByIdQuery : BaseQuery, IRequest<ErrorOr<StudentQueryGetByIdResult>>;
+  
+} 

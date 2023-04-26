@@ -8,6 +8,7 @@ using SampleWithReact.Api.Controllers.Common;
 using SampleWithReact.Application.Courses.Commands.CreateCourse;
 using SampleWithReact.Application.Courses.Queries.GetCourses;
 using MapsterMapper;
+using SampleWithReact.Api.Contracts.Lecturers;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -48,5 +49,7 @@ namespace SampleWithReact.Api.Controllers
                 result => Ok(_mapper.Map<CourseResponse>(result)),
                 Problem);
         }
+
+      
     }
 }

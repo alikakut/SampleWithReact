@@ -11,16 +11,16 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer
 {
-    public class LecturerQueryHandler : IRequestHandler<LecturerQuery, ErrorOr<LecturerQueryResult>>
+    public class LecturerQueryGetByIdHandler : IRequestHandler<LecturerGetByIdQuery, ErrorOr<LecturerQueryGetByIdResult>>
     {
         private readonly ILecturerRepository _lecturerRepository;
 
-        public LecturerQueryHandler(ILecturerRepository lecturerRepository)
+        public LecturerQueryGetByIdHandler(ILecturerRepository lecturerRepository)
         {
             _lecturerRepository = lecturerRepository;
         }
 
-        public async Task<ErrorOr<LecturerQueryResult>> Handle(LecturerQuery request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<LecturerQueryGetByIdResult>> Handle(LecturerGetByIdQuery request, CancellationToken cancellationToken)
         {
             await Task.CompletedTask;
 
@@ -35,7 +35,7 @@ namespace SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer
             {
                 return Errors.NotFound;
             }
-            return new LecturerQueryResult();
+            return new LecturerQueryGetByIdResult();
 
 
         }

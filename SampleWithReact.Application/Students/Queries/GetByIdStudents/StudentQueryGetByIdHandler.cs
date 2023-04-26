@@ -2,20 +2,21 @@
 using ErrorOr;
 using MediatR;
 using SampleWithReact.Application.Common.Interfaces.Persistence;
+
 using SampleWithReact.Domain.Errors;
 
 namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 {
-    public class StudentQueryHandler : IRequestHandler<StudentQuery, ErrorOr<StudentQueryResult>>
+    public class StudentQueryGetByIdHandler : IRequestHandler<StudentGetByIdQuery, ErrorOr<StudentQueryGetByIdResult>>
     {
         IStudentRepository _studentRepository;
      
-        public StudentQueryHandler(IStudentRepository studentRepository)
+        public StudentQueryGetByIdHandler(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
             
         }
-        public async Task<ErrorOr<StudentQueryResult>> Handle(StudentQuery query, CancellationToken cancellationToken)
+        public async Task<ErrorOr<StudentQueryGetByIdResult>> Handle(StudentGetByIdQuery query, CancellationToken cancellationToken)
         {
             await Task.CompletedTask;
 
@@ -30,7 +31,7 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
             {
                 return Errors.NotFound;
             }
-            return new StudentQueryResult();
+            return new StudentQueryGetByIdResult();
                
         }
     }
