@@ -31,7 +31,7 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
             {
                 return Errors.NotFound;
             }
-            return new StudentQueryResult();
+            return new StudentQueryGetByIdResult();
                
         }
     }
