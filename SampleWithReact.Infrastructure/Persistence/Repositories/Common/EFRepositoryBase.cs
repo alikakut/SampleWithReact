@@ -24,17 +24,17 @@ namespace SampleWithReact.Infrastructure.Persistence.Repositories.Common
         protected DbSet<TEntity> _dbSet { get; set; }
         public TEntity Entity { get; set; }
 
-        public TEntity GetById(long id, bool ShowDeleted = false)
+        public TEntity GetById(long Id, bool ShowDeleted = false)
         {
-            if (id != null)
+            if (Id != null)
             {
                 if (ShowDeleted == false)
                 {
-                    return _context.Set<TEntity>().Where(x => x.Id == id && x.IsDeleted == false).FirstOrDefault();
+                    return _context.Set<TEntity>().Where(x => x.Id == Id && x.IsDeleted == false).FirstOrDefault();
                 }
                 else
                 {
-                    return _context.Set<TEntity>().Where(x => x.Id == id).FirstOrDefault()!;
+                    return _context.Set<TEntity>().Where(x => x.Id == Id).FirstOrDefault()!;
                 }
             }
             throw new Exception("Id is Null", new Exception(HttpStatusCode.BadRequest.ToString()));
@@ -54,8 +54,14 @@ namespace SampleWithReact.Infrastructure.Persistence.Repositories.Common
 
         public TEntity Add(TEntity entity)
         {
-            var result = _dbSet.Add(entity);
-            return result.Entity;
+         
+            if(_dbSet.Add(entity) is { } EntityEntry)
+            {
+                _context.SaveChanges();
+                return EntityEntry.Entity;
+            }
+            return null;
+            
         }
 
         public int Count()
@@ -63,9 +69,9 @@ namespace SampleWithReact.Infrastructure.Persistence.Repositories.Common
             return _dbSet.Count();
         }
 
-        public void Delete(long id)
+        public void Delete(long Id)
         {
-            TEntity entity = GetById(id, true);
+            TEntity entity = GetById(Id, true);
 
             if (entity == null)
                 throw new Exception("Silinecek öğe bulunamadı", new Exception(HttpStatusCode.BadRequest.ToString()));
@@ -80,8 +86,11 @@ namespace SampleWithReact.Infrastructure.Persistence.Repositories.Common
 
         public TEntity Delete(TEntity entity)
         {
-            _dbSet.Remove(entity);
+            entity.IsDeleted = true;
+            
+            this.Update(entity, deletion: true);
             return entity;
+           
         }
 
         public TEntity Update(TEntity entity, bool deletion = false)

@@ -9,6 +9,6 @@ using SampleWithReact.Domain.Entities;
 
 namespace SampleWithReact.Application.Lecturers.Commands.CreateLecturers
 {
-    public record CreateLecturerCommand(
+    public record CreateLecturerCommand(long Id,
     string FirstName, string LastName) : IRequest<ErrorOr<LecturerEntity>>;
 }

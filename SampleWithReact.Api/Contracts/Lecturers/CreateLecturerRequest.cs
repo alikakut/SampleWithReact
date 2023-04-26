@@ -1,4 +1,4 @@
 ﻿namespace SampleWithReact.Api.Contracts.Lecturers
 {
-    public record CreateLecturerRequest(string FirstName, string LastName);
+    public record CreateLecturerRequest(long Id,string FirstName, string LastName);
 }

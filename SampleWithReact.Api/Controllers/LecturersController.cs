@@ -43,6 +43,18 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
+        [HttpGet("id")]
+        public async Task<IActionResult> GetById([FromQuery] LecturerPagedRequest request)
+        {
+            var query = _mapper.Map<LecturerGetByIdQuery>(request);
+
+            ErrorOr<LecturerQueryGetByIdResult> queryResult = await _mediator.Send(query);
+
+            return queryResult.Match(
+                result => Ok(_mapper.Map<LecturerResponse>(result)),
+                Problem);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateLecturerRequest request)
         {
@@ -57,9 +69,9 @@ namespace SampleWithReact.Api.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(long Id)
+        public async Task<IActionResult> Delete([FromQuery] DeleteLecturerRequest request)
         {
-            var command = _mapper.Map<DeleteLecturerCommand>(Id);
+            var command = _mapper.Map<DeleteLecturerCommand>(request);
 
             var deleteResult = await _mediator.Send(command);
 
@@ -68,17 +80,7 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(long Id)
-        {
-            var query = _mapper.Map<LecturerGetByIdQuery>(Id);
-
-            ErrorOr<LecturerQueryGetByIdResult> queryResult = await _mediator.Send(query);
-
-            return queryResult.Match(
-                result => Ok(_mapper.Map<LecturerPagedResponse>(result)),
-                Problem);
-        }
+        
     }
 }
 

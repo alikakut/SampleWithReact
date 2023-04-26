@@ -5,5 +5,5 @@
       int PageSize,
       int TotalPageCount,
       int TotalRowCount,
-      List<CourseStudentsPagedResponse> Data);
+      List<CourseStudentsResponse> Data);
 }

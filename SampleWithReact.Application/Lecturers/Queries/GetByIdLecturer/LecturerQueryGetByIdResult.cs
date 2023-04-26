@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer
 {
-    public class LecturerQueryGetByIdResult
-    {
-        int Id;
-    }
+    public record LecturerQueryGetByIdResult
+    ( 
+      long Id ,string FirstName, string LastName, bool IsActive, bool IsDelete
+    );
 }

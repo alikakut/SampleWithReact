@@ -1,6 +1,7 @@
 ﻿using ErrorOr;
 using MediatR;
 using SampleWithReact.Application.Common.Interfaces.Persistence;
+using SampleWithReact.Domain.Entities;
 using SampleWithReact.Domain.Errors;
 using System;
 using System.Collections.Generic;
@@ -20,24 +21,19 @@ namespace SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer
             _lecturerRepository = lecturerRepository;
         }
 
-        public async Task<ErrorOr<LecturerQueryGetByIdResult>> Handle(LecturerGetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<LecturerQueryGetByIdResult>> Handle(LecturerGetByIdQuery query, CancellationToken cancellationToken)
         {
             await Task.CompletedTask;
 
-            if (request.Id <= 0)
+            var lecturer = _lecturerRepository.GetById(query.Id);
+            
+            if (lecturer == null || lecturer.Id < 1  )
             {
                 return Errors.NotFound;
             }
-
-            var lecturer = _lecturerRepository.GetById(request.Id);
-
-            if (lecturer == null)
-            {
-                return Errors.NotFound;
-            }
-            return new LecturerQueryGetByIdResult();
-
-
+          
+            return new LecturerQueryGetByIdResult(query.Id, lecturer.FirstName,lecturer.LastName,lecturer.IsActive,lecturer.IsDeleted);
+            
         }
     }
 }

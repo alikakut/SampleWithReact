@@ -19,10 +19,10 @@ namespace SampleWithReact.Application.Lecturers.Commands.DeleteLecturers
             _lecturerRepository = lecturerRepository;
         }
 
-        public async Task<ErrorOr<LecturerEntity>> Handle(DeleteLecturerCommand request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<LecturerEntity>> Handle(DeleteLecturerCommand query, CancellationToken cancellationToken)
         {
             await Task.CompletedTask;
-            var lecturer = _lecturerRepository.GetById(request.Id);
+            var lecturer = _lecturerRepository.GetById(query.Id);
 
             if (lecturer == null || lecturer.Id < 1)
             {
