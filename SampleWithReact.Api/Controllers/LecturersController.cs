@@ -14,6 +14,7 @@ using MapsterMapper;
 using SampleWithReact.Api.Contracts.Student;
 using SampleWithReact.Application.Students.Commands.DeleteStudents;
 using SampleWithReact.Application.Lecturers.Commands.DeleteLecturers;
+using SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -70,9 +71,9 @@ namespace SampleWithReact.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(long Id)
         {
-            var query = _mapper.Map<LecturerQuery>(Id);
+            var query = _mapper.Map<LecturerGetByIdQuery>(Id);
 
-            ErrorOr<LecturerQueryResult> queryResult = await _mediator.Send(query);
+            ErrorOr<LecturerQueryGetByIdResult> queryResult = await _mediator.Send(query);
 
             return queryResult.Match(
                 result => Ok(_mapper.Map<LecturerPagedResponse>(result)),

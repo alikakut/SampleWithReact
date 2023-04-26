@@ -13,7 +13,7 @@ using MapsterMapper;
 using SampleWithReact.Api.Contracts.Lecturers;
 using SampleWithReact.Application.Lecturers.Commands.DeleteLecturers;
 using SampleWithReact.Application.CourseStudents.Commands.DeleteCourseStudents;
-
+using SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStudent;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -67,6 +67,17 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-       
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long Id)
+        {
+            var query = _mapper.Map<CourseStudentGetByIdQuery>(Id);
+
+            ErrorOr<CourseStudentQueryGetByIdResult> queryResult = await _mediator.Send(query);
+
+            return queryResult.Match(
+                result => Ok(_mapper.Map<LecturerPagedResponse>(result)),
+                Problem);
+        }
+
     }
 }

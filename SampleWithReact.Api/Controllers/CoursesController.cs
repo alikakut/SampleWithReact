@@ -9,6 +9,10 @@ using SampleWithReact.Application.Courses.Commands.CreateCourse;
 using SampleWithReact.Application.Courses.Queries.GetCourses;
 using MapsterMapper;
 using SampleWithReact.Api.Contracts.Lecturers;
+using SampleWithReact.Application.CourseStudents.Commands.DeleteCourseStudents;
+using SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStudent;
+using SampleWithReact.Application.Courses.Queries.GetByIdCourses;
+using SampleWithReact.Application.Courses.Commands.DeleteCourse;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -50,6 +54,29 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-      
+        [HttpDelete]
+        public async Task<IActionResult> Delete(long Id)
+        {
+            var command = _mapper.Map<DeleteCourseCommand>(Id);
+
+            var deleteResult = await _mediator.Send(command);
+
+            return deleteResult.Match(
+                result => Ok(_mapper.Map<CourseResponse>(result)),
+                Problem);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long Id)
+        {
+            var query = _mapper.Map<CourseGetByIdQuery>(Id);
+
+            ErrorOr<CourseGetByIdQueryResult> queryResult = await _mediator.Send(query);
+
+            return queryResult.Match(
+                result => Ok(_mapper.Map<LecturerPagedResponse>(result)),
+                Problem);
+        }
+
     }
 }
