@@ -11,7 +11,7 @@ namespace SampleWithReact.Application.Students.Commands.DeleteStudents
     {
         public DeleteStudentCommandValidator()
         {
-           // RuleFor(x => x.Id).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
         }
     }
 }

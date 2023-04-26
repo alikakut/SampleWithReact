@@ -32,8 +32,6 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
             }
             return new StudentQueryResult();
                
-
-
         }
     }
 }
