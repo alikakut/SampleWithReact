@@ -9,6 +9,6 @@ using System.Threading.Tasks;
 
 namespace SampleWithReact.Application.Courses.Commands.DeleteCourse
 {
-    public record DeleteCourseCommand(int Id) : IRequest<ErrorOr<CourseEntity>>;
+    public record DeleteCourseCommand(long Id) : IRequest<ErrorOr<CourseEntity>>;
     
 }
