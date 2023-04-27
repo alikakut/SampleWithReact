@@ -56,9 +56,9 @@ namespace SampleWithReact.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(long Id)
+        public async Task<IActionResult> Delete(long id)
         {
-            var command = _mapper.Map<DeleteCourseStudentCommand>(Id);
+            var command = _mapper.Map<DeleteCourseStudentCommand>(new { Id = id });
 
             var deleteResult = await _mediator.Send(command);
 
