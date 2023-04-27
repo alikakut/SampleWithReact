@@ -6,5 +6,6 @@
         string FirstName,
         string LastName,
         bool IsActive,
+        DateTime CreateDateTime,
         bool IsDeleted);
 }
