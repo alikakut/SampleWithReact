@@ -44,7 +44,7 @@ namespace SampleWithReact.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateCourseRequest request)
         {
-
+            
             var command = _mapper.Map<CreateCourseCommand>(request);
 
             var createResult = await _mediator.Send(command);

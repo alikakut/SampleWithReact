@@ -27,12 +27,15 @@ namespace SampleWithReact.Application.Courses.Commands.CreateCourse
             {
                 Name = request.Name,
                 CourseName = request.Name,
+                CreateDateTime = DateTime.UtcNow,
+                IsActive = true,
+                IsDeleted = false,
                 Status= request.Status,
                 LecturerId = request.LecturerId
                 
             };
             var persistenceResult = _courseRepository.Add(courseEntity);
-            if (persistenceResult is null || persistenceResult.Id > 1)
+            if (persistenceResult is null || persistenceResult.Id < 1)
             {
                 return Errors.DbPersistence;
             }

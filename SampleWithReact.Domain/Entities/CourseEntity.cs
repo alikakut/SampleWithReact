@@ -29,8 +29,8 @@ namespace SampleWithReact.Domain.Entities
         [Column("created_date_time")]
         public DateTime CreateDateTime { get; set; }
 
-        [ForeignKey("course_student_id")]
-        public CourseStudentEntity courseStudent { get; set;}
+        //[ForeignKey("course_student_id")]
+        //public CourseStudentEntity courseStudent { get; set;}
 
         [ForeignKey("LecturerId")]
         public LecturerEntity Lecturer { get; set; }
