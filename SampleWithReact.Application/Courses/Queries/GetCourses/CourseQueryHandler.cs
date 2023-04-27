@@ -22,7 +22,7 @@ namespace SampleWithReact.Application.Courses.Queries.GetCourses
         {
             await Task.CompletedTask;
 
-            if (_courseRepository.GetAll() is not { } courseList)
+            if (_courseRepository.Get(request.Page,request.Size) is not { } courseList)
             {
                 return Errors.NotFound;
             }
@@ -30,7 +30,12 @@ namespace SampleWithReact.Application.Courses.Queries.GetCourses
             int totalRowCount = _courseRepository.Count();
             int totalPageCount = (int)Math.Ceiling(totalRowCount / (float)request.Size);
 
-            return new CourseQueryResult();
+            return new CourseQueryResult(
+                request.Page,
+                request.Size,
+                totalPageCount,
+                totalRowCount,
+                courseList);
         }
     }
 }
