@@ -20,18 +20,13 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
         {
             await Task.CompletedTask;
 
-            if (query.Id <= 0)
-            {
-                return Errors.NotFound;
-            }
-
             var student = _studentRepository.GetById(query.Id);
 
-            if (_studentRepository.Get(query.Page, query.Size) is not { } studentList)
+            if (student == null || student.Id >= 1)
             {
                 return Errors.NotFound;
             }
-            return new StudentQueryGetByIdResult();
+            return new StudentQueryGetByIdResult(query.Id,student.FirstName,student.MiddleName,student.LastName,student.IsDeleted, student.IsActive);
                
         }
     }
