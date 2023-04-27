@@ -23,18 +23,13 @@ namespace SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStuden
         {
             await Task.CompletedTask;
 
-            if (request.Id <= 0)
-            {
-                return Errors.NotFound;
-            }
-
             var courseStudent = _courseStudentRepository.GetById(request.Id);
 
-            if (courseStudent == null)
+            if (courseStudent == null || courseStudent.Id <1)
             {
                 return Errors.NotFound;
             }
-            return new CourseStudentQueryGetByIdResult();
+            return new CourseStudentQueryGetByIdResult(request.Id, courseStudent.CourseStudentName, courseStudent.CourseId, courseStudent.StudentId, courseStudent.Grade, courseStudent.IsDeleted);
         }
     }
 }

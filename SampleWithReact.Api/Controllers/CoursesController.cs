@@ -66,15 +66,15 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(long Id)
+        [HttpGet("id")]
+        public async Task<IActionResult> GetById([FromQuery] CoursePagedRequest request)
         {
-            var query = _mapper.Map<CourseGetByIdQuery>(Id);
+            var query = _mapper.Map<CourseGetByIdQuery>(request);
 
             ErrorOr<CourseGetByIdQueryResult> queryResult = await _mediator.Send(query);
 
             return queryResult.Match(
-                result => Ok(_mapper.Map<LecturerPagedResponse>(result)),
+                result => Ok(_mapper.Map<CourseResponse>(result)),
                 Problem);
         }
 

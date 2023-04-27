@@ -2,7 +2,7 @@
 {
     public record CourseStudentsResponse(
         long Id,
-        string Name,
+        string CourseStudentName,
          long CourseId,
          long StudentId,
          int Grade,

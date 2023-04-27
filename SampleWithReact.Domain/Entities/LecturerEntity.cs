@@ -20,7 +20,6 @@ namespace SampleWithReact.Domain.Entities
         [Column("is_active")]
         public bool IsActive { get; set; }
 
-        [Column("created_date_time")]
-        public DateTime CreateDateTime { get; set; }
+        
     }
 }

@@ -22,7 +22,7 @@ namespace SampleWithReact.Application.Students.Queries.GetByIdStudents
 
             var student = _studentRepository.GetById(query.Id);
 
-            if (student == null || student.Id >= 1)
+            if (student == null || student.Id < 1)
             {
                 return Errors.NotFound;
             }
