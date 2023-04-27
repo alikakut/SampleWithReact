@@ -3,13 +3,14 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
-using SampleWithReact.Api.Contracts.Student;
+using SampleWithReact.Api.Contracts.Student; 
 using SampleWithReact.Api.Controllers.Common;
 using SampleWithReact.Application.Students.Commands.CreateStudents;
 using SampleWithReact.Application.Students.Queries.GetByIdStudents;
 using MapsterMapper;
 using SampleWithReact.Application.Students.Commands.DeleteStudents;
 using SampleWithReact.Application.Students.Queries.GetStudents;
+using SampleWithReact.Api.Contracts.Lecturers;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -75,15 +76,15 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(long Id)
+        [HttpGet("id")]
+        public async Task<IActionResult> GetById([FromQuery] LecturerPagedRequest request)
         {
-            var query = _mapper.Map<StudentGetByIdQuery>(Id);
+            var query = _mapper.Map<StudentGetByIdQuery>(request);
 
             ErrorOr<StudentQueryGetByIdResult> queryResult = await _mediator.Send(query);
 
             return queryResult.Match(
-                result => Ok(_mapper.Map<StudentPagedResponse>(result)),
+                result => Ok(_mapper.Map<StudentResponse>(result)),
                 Problem);
         }
 

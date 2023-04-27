@@ -1,7 +1,7 @@
 ﻿
 using ErrorOr;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization; 
 using Microsoft.AspNetCore.Mvc;
 using SampleWithReact.Api.Contracts.Course;
 using SampleWithReact.Api.Contracts.Lecturers;
