@@ -25,7 +25,7 @@ namespace SampleWithReact.Application.CourseStudents.Queries.GetCourseStudent
             //throw new NotImplementedException();
             await Task.CompletedTask;
 
-            if (_courseStudentRepository.GetAll() is not { } courseStudentList)
+            if (_courseStudentRepository.Get(request.Page,request.Size) is not { } courseStudentList)
             {
                 return Errors.NotFound;
             }
@@ -33,7 +33,12 @@ namespace SampleWithReact.Application.CourseStudents.Queries.GetCourseStudent
             int totalRowCount = _courseStudentRepository.Count();
             int totalPageCount = (int)Math.Ceiling(totalRowCount / (float)request.Size);
 
-            return new CourseStudentQueryResult();
+            return new CourseStudentQueryResult(
+                request.Page,
+                request.Size,
+                totalPageCount,
+                totalRowCount,
+                courseStudentList);
         }
     }
 }

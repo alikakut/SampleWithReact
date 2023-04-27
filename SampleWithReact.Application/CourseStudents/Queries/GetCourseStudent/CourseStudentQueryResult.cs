@@ -8,9 +8,10 @@ using SampleWithReact.Domain.Entities;
 namespace SampleWithReact.Application.CourseStudents.Queries.GetCourseStudent
 {
    
-    public class CourseStudentQueryResult
-    {
-        int CourseId;
-        int CourseName;
-    }
+    public record CourseStudentQueryResult(
+        int CurrentPage,
+       int PageSize,
+       int TotalPageCount,
+       int TOtalRowCount,
+       List<CourseStudentEntity>Data);
 }

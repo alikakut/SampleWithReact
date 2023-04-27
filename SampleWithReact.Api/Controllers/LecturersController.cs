@@ -68,7 +68,7 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromQuery] DeleteLecturerRequest request)
         {
             var command = _mapper.Map<DeleteLecturerCommand>(request);
