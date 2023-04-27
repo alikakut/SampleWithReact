@@ -17,6 +17,9 @@ namespace SampleWithReact.Domain.Entities
         [Column("middle_name")]
         public string MiddleName { get; set; }
 
+        [Column("created_date_time")]
+        public DateTime CreateDateTime { get; set; }
+
         [Column("last_name")]
         public string LastName { get; set; }
 
