@@ -26,6 +26,7 @@ namespace SampleWithReact.Application.Courses.Commands.CreateCourse
             var courseEntity = new CourseEntity
             {
                 Name = request.Name,
+                CourseName = request.Name,
                 Status= request.Status,
                 LecturerId = request.LecturerId
                 

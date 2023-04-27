@@ -12,7 +12,7 @@ namespace SampleWithReact.Application.CourseStudents.Commands.CreateCourseStuden
     {
         public CreateCourseStudentCommandValidator()
         {
-            //RuleFor(x => x.).NotEmpty();
+            RuleFor(x => x.Name).NotEmpty();
         }
     }
 }
