@@ -26,6 +26,9 @@ namespace SampleWithReact.Domain.Entities
         [Column("is_active")]
         public bool IsActive { get; set; }
 
+        [Column("created_date_time")]
+        public DateTime CreatedDateTime { get; set; }
+
         [ForeignKey("LecturerId")]
         public LecturerEntity Lecturer { get; set; }
     }

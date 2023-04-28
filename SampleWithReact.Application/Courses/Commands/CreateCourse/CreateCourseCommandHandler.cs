@@ -26,6 +26,8 @@ namespace SampleWithReact.Application.Courses.Commands.CreateCourse
             var courseEntity = new CourseEntity
             {
                 CourseName = request.Name,
+                Name = request.Name,
+                CreatedDateTime = DateTime.UtcNow,
                 IsActive = true,
                 IsDeleted = false,
                 Status= request.Status,
