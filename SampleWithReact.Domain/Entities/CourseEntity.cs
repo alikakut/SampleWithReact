@@ -11,6 +11,8 @@ namespace SampleWithReact.Domain.Entities
     [Table("course")]
     public class CourseEntity:BaseEntity
     {
+        [Column("name")]
+        public string Name { get; set; }
 
         [Column("course_name")]
         public string CourseName { get; set; }

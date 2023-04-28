@@ -96,6 +96,7 @@ namespace SampleWithReact.Infrastructure.Persistence.Repositories.Common
         public TEntity Update(TEntity entity, bool deletion = false)
         {
             _dbSet.Update(entity);
+            _context.SaveChanges();
             return entity;
         }
     }
