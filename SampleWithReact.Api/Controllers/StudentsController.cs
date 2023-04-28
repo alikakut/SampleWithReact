@@ -53,7 +53,7 @@ namespace SampleWithReact.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromQuery] CreateStudentRequest request)
+        public async Task<IActionResult> Update([FromBody] StudentResponse request)
         {
             var command = _mapper.Map<UpdateStudentCommand>(request);
 
