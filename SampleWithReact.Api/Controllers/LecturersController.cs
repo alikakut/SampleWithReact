@@ -15,6 +15,7 @@ using SampleWithReact.Api.Contracts.Student;
 using SampleWithReact.Application.Students.Commands.DeleteStudents;
 using SampleWithReact.Application.Lecturers.Commands.DeleteLecturers;
 using SampleWithReact.Application.Lecturers.Queries.GetByIdLecturer;
+using SampleWithReact.Application.Lecturers.Commands.UpdateLecturers;
 
 namespace SampleWithReact.Api.Controllers
 {
@@ -80,7 +81,17 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-        
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] LecturerResponse request)
+        {
+            var command = _mapper.Map<UpdateLecturerCommand>(request);
+            var updateResult = await _mediator.Send(command);
+            return updateResult.Match(
+                result => Ok(_mapper.Map<LecturerResponse>(result)),
+                Problem);
+        }
+
+
     }
 }
 
