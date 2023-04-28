@@ -23,6 +23,9 @@ namespace SampleWithReact.Domain.Entities
         [Column("grade")]
         public int Grade { get; set; }
 
+        [Column("created_date_time")]
+        public DateTime CreatedDateTime { get; set; }
+
         [ForeignKey("CourseId")]
         public CourseEntity Course { get; set; }
 

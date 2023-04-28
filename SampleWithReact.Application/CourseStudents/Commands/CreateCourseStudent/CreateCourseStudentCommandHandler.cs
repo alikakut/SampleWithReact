@@ -25,6 +25,8 @@ namespace SampleWithReact.Application.CourseStudents.Commands.CreateCourseStuden
 
             var courseStudentEntity = new CourseStudentEntity
             {
+              Name = request.Name,
+              CreatedDateTime = request.CreatDateTime,
               CourseId = request.CourseId,
               StudentId= request.StudentId,
               Grade= request.Grade
