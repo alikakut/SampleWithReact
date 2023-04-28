@@ -43,10 +43,10 @@ namespace SampleWithReact.Api.Controllers
                 Problem);
         }
 
-        [HttpGet("id")]
-        public async Task<IActionResult> GetById([FromQuery] LecturerPagedRequest request)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long id)
         {
-            var query = _mapper.Map<LecturerGetByIdQuery>(request);
+            var query = _mapper.Map<LecturerGetByIdQuery>(new { Id = id });
 
             ErrorOr<LecturerQueryGetByIdResult> queryResult = await _mediator.Send(query);
 
