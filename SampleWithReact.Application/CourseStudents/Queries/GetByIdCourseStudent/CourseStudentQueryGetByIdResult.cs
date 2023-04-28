@@ -9,6 +9,6 @@ using System.Threading.Tasks;
 namespace SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStudent
 {
     public record CourseStudentQueryGetByIdResult
-    (long Id, string CourseStudentName, long CourseId, long StudentId,int Grade,bool IsDeleted);
+    (long Id, string Name, long CourseId, long StudentId,int Grade,bool IsDeleted);
     
 }

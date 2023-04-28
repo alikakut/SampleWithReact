@@ -29,7 +29,7 @@ namespace SampleWithReact.Application.CourseStudents.Queries.GetByIdCourseStuden
             {
                 return Errors.NotFound;
             }
-            return new CourseStudentQueryGetByIdResult(request.Id, courseStudent.CourseStudentName, courseStudent.CourseId, courseStudent.StudentId, courseStudent.Grade, courseStudent.IsDeleted);
+            return new CourseStudentQueryGetByIdResult(request.Id, courseStudent.Name, courseStudent.CourseId, courseStudent.StudentId, courseStudent.Grade, courseStudent.IsDeleted);
         }
     }
 }
